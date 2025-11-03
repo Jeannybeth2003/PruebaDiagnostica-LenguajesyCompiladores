@@ -1,0 +1,5 @@
+Tiempo de ejecución: 0.002 segundos
+
+Polinomio (x+1)^100:
+
+Resultado para x = 2:
