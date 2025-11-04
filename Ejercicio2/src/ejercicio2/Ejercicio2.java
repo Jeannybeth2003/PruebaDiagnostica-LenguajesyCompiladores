@@ -77,7 +77,7 @@ public class Ejercicio2 {
                 
                 resultado += termino;
 
-                // Construir la representación textual del término
+              
                 if (i < n) {
                     calculoStr.append(" + ");
                 }
@@ -138,7 +138,7 @@ public class Ejercicio2 {
 
             // 2. Resultado para x = 2
             archivo.write("\nResultado para x = 2:\n");
-            // Llamamos a calcularPolinomio, pasando el FileWriter como destino
+       
             calcularPolinomio(n, 2, coeficientes, archivo);
 
             System.out.println("\nResultados guardados en 'resultado.txt'");
@@ -152,30 +152,31 @@ public class Ejercicio2 {
         int n = 100; 
         List<Integer> coeficientes = new ArrayList<>();
         
-        // --- 1. Generación y Medición de Tiempo ---
+        //  Medición de Tiempo 
         long inicio = System.nanoTime();
         generarTrianguloPascal(n, coeficientes);
         long fin = System.nanoTime();
         
         double tiempoEjecucionSegundos = (fin - inicio) / 1_000_000_000.0;
         
-        // --- 2. Mostrar Resultados en Consola ---
+        // Resultados en Consola
         System.out.println("--- Polinomio Binomial ---");
         mostrarPolinomio(n, coeficientes);
         
         try {
-            // Usamos System.out como un Appendable para imprimir en la consola
+           
             calcularPolinomio(n, 2, coeficientes, System.out);
         } catch (IOException e) {
-            // Esto solo ocurriría si System.out fallara (caso muy raro)
+            
             System.err.println("Error al imprimir el cálculo del polinomio: " + e.getMessage());
         }
         
         System.out.println("\nTiempo de ejecución: " + tiempoEjecucionSegundos + " segundos");
 
-        // --- 3. Guardar en Archivo ---
+        // Guardar en Archivo 
         guardarResultados(n, coeficientes, tiempoEjecucionSegundos);
     }
   
     
 }
+
