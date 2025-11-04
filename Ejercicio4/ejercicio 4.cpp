@@ -87,12 +87,12 @@ void verificar_palabras_reservadas(char *programa) {
         // Bucle para buscar todas las ocurrencias de la palabra actual
         while ((ptr_programa = strstr(ptr_programa, palabra)) != NULL) {
             
-            // --- VERIFICACIÓN DE TOKEN COMPLETO ---
+        
             
-            // 1. Comprueba el inicio: debe ser el inicio de la cadena o un delimitador
+            // Comprueba el inicio
             int inicio_valido = (ptr_programa == programa) || es_delimitador(*(ptr_programa - 1));
             
-            // 2. Comprueba el final: debe ser el final de la cadena o un delimitador
+            // Comprueba el final
             int fin_valido = (*(ptr_programa + len_palabra) == '\0') || es_delimitador(*(ptr_programa + len_palabra));
 
             if (inicio_valido && fin_valido) {
@@ -150,7 +150,7 @@ int main() {
         return 1;
     }
     
-    // 1. Cargar el código en memoria dinámica desde el archivo
+    // Carga el código en memoria dinámica desde el archivo
     char *programa_cargado = cargar_programa_desde_archivo(nombre_archivo);
 
     if (programa_cargado == NULL) {
@@ -162,15 +162,16 @@ int main() {
     printf("%s\n", programa_cargado);
     printf("--------------------------------------------------\n");
 
-    // 2. Procesar: Verificar y contar las palabras reservadas
+    // Verificar y contar las palabras reservadas
     verificar_palabras_reservadas(programa_cargado);
 
-    // 3. Generar el reporte (muestra la lista y el conteo traducido)
+    // Genera el reporte (muestra la lista y el conteo traducido)
     generar_reporte();
 
-    // 4. Liberar la memoria dinámica
+    // Libera la memoria dinámica
     printf("\nLiberando memoria dinámica...\n");
     free(programa_cargado);
 
     return 0;
+
 }
